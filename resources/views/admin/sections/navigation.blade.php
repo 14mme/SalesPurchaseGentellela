@@ -35,6 +35,29 @@
                 </ul>
             </div>
             <div class="menu_section">
+                <h3>{{ __('views.backend.section.navigation.sub_header_4') }}</h3>
+                <ul class="nav side-menu">
+                    <li>
+                        <a href="{{ route('admin.Sales') }}">
+                            <i class="fa fa-home" aria-hidden="true"></i>
+                            {{ __('views.backend.section.navigation.menu_4_1') }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.Purchasing') }}">
+                            <i class="fa fa-home" aria-hidden="true"></i>
+                            {{ __('views.backend.section.navigation.menu_4_2') }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.MasterData') }}">
+                            <i class="fa fa-home" aria-hidden="true"></i>
+                            {{ __('views.backend.section.navigation.menu_4_3') }}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu_section">
                 <h3>{{ __('views.backend.section.navigation.sub_header_1') }}</h3>
                 <ul class="nav side-menu">
                     <li>

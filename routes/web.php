@@ -65,6 +65,18 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::get('permissions/{user}/repeat', 'PermissionController@repeat')->name('permissions.repeat');
     Route::get('dashboard/log-chart', 'DashboardController@getLogChartData')->name('dashboard.log.chart');
     Route::get('dashboard/registration-chart', 'DashboardController@getRegistrationChartData')->name('dashboard.registration.chart');
+    Route::get('Sales', 'SalesPurchaseController@getSalesList')->name('Sales');
+    Route::get('Sales/{id}', 'SalesPurchaseController@getSalesShow')->name('Sales.show');
+    Route::get('Sales/{id}/edit', 'SalesPurchaseController@getSalesEdit')->name('Sales.edit');
+    Route::get('Sales/{id}/destroy', 'SalesPurchaseController@getSalesDestroy')->name('Sales.destroy');
+    Route::get('Purchase', 'SalesPurchaseController@getPurchasingList')->name('Purchasing');
+    Route::get('Purchase/{id}', 'SalesPurchaseController@getPurchasingShow')->name('Purchasing.show');
+    Route::get('Purchase/{id}/edit', 'SalesPurchaseController@getPurchasingEdit')->name('Purchasing.edit');
+    Route::get('Purchase/{id}/destroy', 'SalesPurchaseController@getPurchasingDestroy')->name('Purchasing.destroy');
+    Route::get('MasterData', 'SalesPurchaseController@getMasterDataList')->name('MasterData');
+    Route::get('MasterData/{id}', 'SalesPurchaseController@getMasterDataShow')->name('MasterData.show');
+    Route::get('MasterData/{id}/edit', 'SalesPurchaseController@getMasterDataEdit')->name('MasterData.edit');
+    Route::get('MasterData/{id}/destroy', 'SalesPurchaseController@getMasterDataDestroy')->name('MasterData.destroy');
 });
 
 
