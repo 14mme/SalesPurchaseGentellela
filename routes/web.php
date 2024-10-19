@@ -77,6 +77,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::get('MasterData/{id}', 'SalesPurchaseController@getMasterDataShow')->name('MasterData.show');
     Route::get('MasterData/{id}/edit', 'SalesPurchaseController@getMasterDataEdit')->name('MasterData.edit');
     Route::get('MasterData/{id}/destroy', 'SalesPurchaseController@getMasterDataDestroy')->name('MasterData.destroy');
+    
+    Route::get('reporting', 'DashboardController@getReportingPage')->name('reporting');
+    Route::get('reporting/data-grouping','DashboardController@getReportingcustomerGrouping')->name('reporting.grouping');
+    Route::get('reporting/customer-all-data', 'DashboardController@getDataAllMasterData')->name('reporting.customer.all.data');
 });
 
 

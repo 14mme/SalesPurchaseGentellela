@@ -9,6 +9,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Routing\Route;
+use App\Models\Customers;
+use COM;
 
 class DashboardController extends Controller
 {
@@ -105,5 +107,38 @@ class DashboardController extends Controller
         ];
 
         return response($data);
+    }
+
+    public function getReportingPage()
+    {
+        $MasterData = Customers::all();
+        return view('admin.reporting',["MasterData" => $MasterData]);
+    }
+
+    public function getReportingcustomerGrouping(){
+        $data = [
+            'less_50000' => 50,
+            '_50000_99999' => 50,
+            '_100000_999999' => 50,
+            'more_than_equal_1000000' => 50
+        ];
+        return response($data);
+    }
+
+    public function getDataAllMasterData(){
+        $MasterData = Customers::all();
+        for ($i=0; $i<count($MasterData); $i++){
+            if ($MasterData[$i]["price"] <= 50000){
+                $MasterData[$i]['price_range'] = 'less_50000';
+            }else if ($MasterData[$i]["price"] > 50000 && $MasterData[$i]["price"] <= 99999){
+                $MasterData[$i]['price_range'] = '_50000_99999';
+            }else if ($MasterData[$i]["price"] > 100000 && $MasterData[$i]["price"] <= 999999){
+                $MasterData[$i]['price_range'] = '_50000_99999';
+            }else{
+                $MasterData[$i]['price_range'] = 'more_than_equal_1000000';
+            }
+            $MasterData[$i]['created_range'] = substr($MasterData[$i]['created_at'],0,7);
+        }
+        return response($MasterData);
     }
 }
